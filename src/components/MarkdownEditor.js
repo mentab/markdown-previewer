@@ -4,7 +4,9 @@ const MarkdownEditor = (props) => {
     const text = props.text;
     const change = props.change;
     return (
-        <textarea id="editor" onChange={change}>{text}</textarea>
+        <textarea id="editor"
+            onChange={change}
+            defaultValue={text}></textarea>
     );
 };
 

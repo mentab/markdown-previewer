@@ -1,9 +1,10 @@
 import React from 'react';
 
 const MarkdownPreview = (props) => {
-    const text = props.text;
+    const htmlText = props.htmlText;
     return (
-        <section id="preview">{text}</section>
+        <section id="preview"
+            dangerouslySetInnerHTML={htmlText}></section>
     );
 };
 
