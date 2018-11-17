@@ -1,10 +1,14 @@
 import React from 'react';
+import { Jumbotron } from 'reactstrap';
 
 const MarkdownPreview = (props) => {
     const htmlText = props.htmlText;
     return (
-        <section id="preview"
-            dangerouslySetInnerHTML={htmlText}></section>
+        <Jumbotron>
+            <p>See the parsed result here :</p>
+            <section id="preview"
+                dangerouslySetInnerHTML={htmlText} />
+        </Jumbotron>
     );
 };
 
