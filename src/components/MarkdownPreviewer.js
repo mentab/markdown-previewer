@@ -17,10 +17,23 @@ getMarkdown(text) {
 }
 \`\`\`
 * you can parse\n- you may parse\n+ you must parse\n
+There is some \`inline code\` here, but it sucks...\n
 > Parse it if you want it\n> If you don't want to parse, don't parse\n> If you want to parse, parse\n> If you don't know, or if you don't know what is parsing, parse\n
 ![alt text](https://github.com/adam-p/markdown-here/raw/master/src/common/images/icon48.png "Parse plz")\nParse, **parse** or __parse__.
 
 `;
+    // Link renderer
+    const renderer = new marked.Renderer();
+
+    renderer.link = (href, title, text) => `<a href="${href}" title="${title}" target="_blank">${text}</a>`;
+    
+    // Set breaks and new renderer (optional)
+    marked.setOptions({
+      breaks: true,
+      renderer: renderer
+    });
+
+
     this.state = {
       text: onloadStr,
       htmlText: this.getMarkdown(onloadStr)
